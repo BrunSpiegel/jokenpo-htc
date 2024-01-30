@@ -1,21 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="./reset.css">
-  <link rel="stylesheet" href="./styles.css">
-  <title>Jokenpo - HTC</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./styles.css">
+    <title>Jokenpo - HTC</title>
 </head>
 <body>
   <header class="header">
-    <h1 class="winner-title">Jogador 1 ganhou!</h1>
-    <div class="scoreboard-box"></div>
+      <h1 class="winner-title">Jogador 1 ganhou!</h1>
+      <div class="scoreboard-box">
+        <span class="player-name">Jogador 1</span>
+        <span class="score">01</span>
+        <span class="score-separator">vs</span>
+        <span class="score">01</span>
+        <span class="player-name">Jogador 2</span>
+      </div>
   </header>
-  <footer></footer>
+  <main class="battlefield">
+      <div class="button-move-wrapper">
+        <button class="button-move">Pedra</button>
+        <button class="button-move">Papel</button>
+        <button class="button-move">Tesoura</button>
+      </div>
+      <div class="board">
+          <div class="move-box"></div>
+          <span class="move-box-separator">vs</span>
+          <div class="move-box"></div>
+      </div>
+      <div class="button-move-wrapper">
+        <button class="button-move">Pedra</button>
+        <button class="button-move">Papel</button>
+        <button class="button-move">Tesoura</button>
+      </div>
+  </main>
+  <footer class="config-box">
+    <button class="button-move">Iniciar</button>
+    <button class="button-move">Resetar</button>
+  </footer>
 </body>
 </html>
