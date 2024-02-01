@@ -11,6 +11,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-top: 15px;
 }
 
 .winner-title {
@@ -33,6 +34,7 @@ body {
   width: 60%;
   height: 148px;
   border-radius: 17px;
+
 }
 
 .player-name {
@@ -115,12 +117,24 @@ body {
   width: 36%;
   height: 100%;
   border-radius: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.move-box img {
+  width: 80%;
+  height: auto;
 }
 
 .move-box-separator {
   color: #FFFFFF;
   font-size: 104px;
   font-weight: 900;
+}
+
+#move-box-2 img {
+  transform: scaleX(-1);
 }
 
 @media screen and (max-width: 720px) { 
