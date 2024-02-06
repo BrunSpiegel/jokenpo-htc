@@ -82,6 +82,7 @@ function resetMoveVariables() {
 }
 
 function resetEntireGame() {
+  $winnerTitle.innerHTML = 'jokenpo'
   $scorePlayer1.innerHTML = '00'
   $scorePlayer2.innerHTML = '00'
   movePlayer1 = ''
