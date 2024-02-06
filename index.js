@@ -14,6 +14,8 @@ const $scorePlayer2 = document.querySelector('#score-2')
 
 const $winnerTitle = document.querySelector('.winner-title')
 
+const $resetGame = document.querySelector('#reset-button')
+
 let movePlayer1 = ''
 let movePlayer2 = '' 
 let winner = 0
@@ -77,6 +79,16 @@ function resetMoveVariables() {
     movePlayer1 = ''
     movePlayer2 = ''
 
+}
+
+function resetEntireGame() {
+  $scorePlayer1.innerHTML = '00'
+  $scorePlayer2.innerHTML = '00'
+  movePlayer1 = ''
+  movePlayer2 = '' 
+  winner = 0
+  player1Score = 0
+  player2Score = 0
 }
 
 function handleRockPlayer1() {
@@ -163,7 +175,6 @@ function handleScissorsPlayer2() {
    } 
 }
 
-
 $buttonRockPlayer1.addEventListener('click', handleRockPlayer1)
 $buttonPaperPlayer1.addEventListener('click', handlePaperPlayer1)
 $buttonScissorsPlayer1.addEventListener('click', handleScissorsPlayer1)
@@ -171,5 +182,7 @@ $buttonScissorsPlayer1.addEventListener('click', handleScissorsPlayer1)
 $buttonRockPlayer2.addEventListener('click', handleRockPlayer2)
 $buttonPaperPlayer2.addEventListener('click', handlePaperPlayer2)
 $buttonScissorsPlayer2.addEventListener('click', handleScissorsPlayer2)
+
+$resetGame.addEventListener('click', resetEntireGame)
 
 
