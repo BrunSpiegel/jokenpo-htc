@@ -137,6 +137,15 @@ body {
   transform: scaleX(-1);
 }
 
+.started {
+  background-color: red;
+  border: solid 1px red;
+}
+
+.started:hover {
+  color: red;
+}
+
 @media screen and (max-width: 720px) { 
   body {
     padding: 1%;

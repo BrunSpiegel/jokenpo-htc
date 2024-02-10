@@ -15,12 +15,14 @@ const $scorePlayer2 = document.querySelector('#score-2')
 const $winnerTitle = document.querySelector('.winner-title')
 
 const $resetGame = document.querySelector('#reset-button')
+const $startGame = document.querySelector('#start-button')
 
 let movePlayer1 = ''
 let movePlayer2 = '' 
 let winner = 0
 let player1Score = 0
 let player2Score = 0
+let start = false
 
 function verifyWinner() {
     if(movePlayer1 == '' || movePlayer2 == '') {
@@ -58,16 +60,23 @@ function printWinnerScore() {
 }
 
 function printWinnerTitle() {
-  if (winner == 1) {
-      $winnerTitle.innerHTML = 'Jogador 1 ganhou!'
-  }
-  if (winner == 2) {
-      $winnerTitle.innerHTML = 'Jogador 2 ganhou!'
-  }
-  
-  if (winner == 3) {
+   if (winner == 0) {
+   $winnerTitle.innerHTML = 'jokenpo'
+   }
+   if (winner == 1) {
+       $winnerTitle.innerHTML = 'Jogador 1 ganhou!'
+   }
+   if (winner == 2) {
+       $winnerTitle.innerHTML = 'Jogador 2 ganhou!'
+   }
+   if (winner == 3) {
     $winnerTitle.innerHTML = 'empate'
-  }
+   }
+}
+
+function resetPlayersScore() {
+  player1Score = ''
+  player2Score = ''
 }
 
 function resetBattlefield() {
@@ -78,21 +87,32 @@ function resetBattlefield() {
 function resetMoveVariables() {
     movePlayer1 = ''
     movePlayer2 = ''
-
 }
 
 function resetEntireGame() {
-  $winnerTitle.innerHTML = 'jokenpo'
-  $scorePlayer1.innerHTML = '00'
-  $scorePlayer2.innerHTML = '00'
-  movePlayer1 = ''
-  movePlayer2 = '' 
-  winner = 0
-  player1Score = 0
-  player2Score = 0
+  resetMoveVariables()
+  resetBattlefield()
+  resetPlayersScore()
+  printWinnerScore() 
+  printWinnerTitle()
+  $startGame.textContent = 'Iniciar'
+  $startGame.classList.remove('started')
+}
+
+function handleToggleGame() {
+  if (start == false) {
+    start = true
+    $startGame.textContent = 'Parar'
+    $startGame.classList.add('started')
+  } else {
+    start = false
+    $startGame.textContent = 'Iniciar'
+    $startGame.classList.remove('started')
+  }
 }
 
 function handleRockPlayer1() {
+   if (start == false) return
    $moveBox1.innerHTML = '<img src="./images/stone.png" alt="imagem de pedra" title="pedra"></img>'
    movePlayer1 = 'rock'
    verifyWinner()
@@ -107,6 +127,7 @@ function handleRockPlayer1() {
 }
 
 function handlePaperPlayer1() {
+    if (start == false) return
     $moveBox1.innerHTML = '<img src="./images/paper.png" alt="imagem de um papel" title="papel"></img>'
     movePlayer1  = 'paper'
     verifyWinner()
@@ -121,6 +142,7 @@ function handlePaperPlayer1() {
 }
 
 function handleScissorsPlayer1() {
+    if (start == false) return 
     $moveBox1.innerHTML = '<img src="./images/scissors.png" alt="imagem de uma tesoura" title="tesoura"></img>'
     movePlayer1 = 'scissors'
     verifyWinner()
@@ -135,6 +157,7 @@ function handleScissorsPlayer1() {
 }
 
 function handleRockPlayer2() {
+    if (start == false) return
     $moveBox2.innerHTML = '<img src="./images/stone.png" alt="imagem de pedra" title="pedra"></img>'
     movePlayer2 = 'rock'
     verifyWinner()
@@ -149,6 +172,7 @@ function handleRockPlayer2() {
 }
 
 function handlePaperPlayer2() {
+    if (start == false) return
     $moveBox2.innerHTML = '<img src="./images/paper.png" alt="imagem de um papel" title="papel"></img>'
     movePlayer2 = 'paper'
     verifyWinner()
@@ -163,6 +187,7 @@ function handlePaperPlayer2() {
 }
 
 function handleScissorsPlayer2() {
+    if (start == false) return
     $moveBox2.innerHTML = '<img src="./images/scissors.png" alt="imagem de uma tesoura" title="tesoura"></img>'
     movePlayer2 = 'scissors'
     verifyWinner()
@@ -185,5 +210,6 @@ $buttonPaperPlayer2.addEventListener('click', handlePaperPlayer2)
 $buttonScissorsPlayer2.addEventListener('click', handleScissorsPlayer2)
 
 $resetGame.addEventListener('click', resetEntireGame)
+$startGame.addEventListener('click', handleToggleGame)
 
 
